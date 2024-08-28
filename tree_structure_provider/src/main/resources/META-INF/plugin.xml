@@ -33,7 +33,53 @@
   <vendor url="https://plugins.jetbrains.com">IntelliJ Platform SDK</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
-    <treeStructureProvider implementation="org.intellij.sdk.treeStructureProvider.TextOnlyTreeStructureProvider"/>
+    <toolWindow id="Bookmark-X" anchor="left"
+                icon="/icons/logo.svg"
+                factoryClass="indi.bookmarkx.RootWindowFactory" secondary="true"/>
+
+    <projectService serviceImplementation="indi.bookmarkx.MyPersistent"/>
+
+    <editor.linePainter implementation="indi.bookmarkx.ui.painter.LineEndPainter"/>
+
+    <editorFactoryDocumentListener implementation="indi.bookmarkx.global.BookmarkDocumentListener"/>
   </extensions>
+
+  <applicationListeners>
+    <listener class="indi.bookmarkx.global.ProjectListener"
+              topic="com.intellij.openapi.project.ProjectManagerListener"/>
+
+    <listener class="indi.bookmarkx.global.ToolWindowListener"
+              topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
+  </applicationListeners>
+
+  <!--插件动作-->
+  <actions>
+
+    <group id="org.intellij.sdk.action.GroupedActions" text="_Bookmark-X" popup="true">
+      <add-to-group group-id="GoToMenu" anchor="after"
+                    relative-to-action="indi.bookmarkx.action.BookmarkCreateAction"/>
+
+      <action id="indi.bookmarkx.action.BookmarkCreateAction" class="indi.bookmarkx.action.BookmarkCreateAction"
+              text="Add With Line">
+        <keyboard-shortcut first-keystroke="shift alt d" keymap="$default"/>
+      </action>
+      <action id="indi.bookmarkx.action.NextBookmarkAction" class="indi.bookmarkx.action.NextBookmarkAction"
+              text="Next">
+        <keyboard-shortcut first-keystroke="shift alt RIGHT" keymap="$default"/>
+      </action>
+      <action id="indi.bookmarkx.action.PrevBookmarkAction" class="indi.bookmarkx.action.PrevBookmarkAction"
+              text="Prev">
+        <keyboard-shortcut first-keystroke="shift alt LEFT" keymap="$default"/>
+      </action>
+
+      <!-- 帮助菜单，跳转到插件官网 -->
+      <action id="indi.bookmarkx.action.ToHelpWebPageAction"
+              class="indi.bookmarkx.action.ToHelpWebPageAction"
+              text="_Help"
+              icon="AllIcons.Actions.Help">
+      </action>
+    </group>
+
+  </actions>
 
 </idea-plugin>

@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
+
 // Copyright 2000-2023 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license.
 
 plugins {
@@ -14,6 +16,10 @@ repositories {
 
 java {
   sourceCompatibility = JavaVersion.VERSION_11
+}
+
+tasks.withType<JavaCompile> {
+  options.encoding = "UTF-8"
 }
 
 // See https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
