@@ -26,7 +26,7 @@ tasks.withType<JavaCompile> {
 intellij {
   // version.set("2023.3.7")
 //  localPath.set("D:\\wp\\git\\intellij-sdk-code-samples\\tree_structure_provider\\libs\\ideaIC-2023.3.7")
-  localPath.set("D:\\wp\\git\\Bookmark-X\\local-repo\\ideaIC-2021.2.2")
+  localPath.set("D:\\wp\\git\\intellij-sdk-code-samples\\tree_structure_provider\\local-repo\\ideaIC-2021.2.2")
   instrumentCode.set(false)
 }
 
