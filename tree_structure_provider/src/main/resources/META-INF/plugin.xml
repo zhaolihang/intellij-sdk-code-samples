@@ -42,6 +42,8 @@
     <editor.linePainter implementation="indi.bookmarkx.ui.painter.LineEndPainter"/>
 
     <editorFactoryDocumentListener implementation="indi.bookmarkx.global.BookmarkDocumentListener"/>
+
+    <treeStructureProvider implementation="com.example.CustomTreeStructureProvider"/>
   </extensions>
 
   <applicationListeners>
