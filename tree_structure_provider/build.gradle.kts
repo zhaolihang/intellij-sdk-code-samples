@@ -24,9 +24,8 @@ tasks.withType<JavaCompile> {
 
 // See https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-  // version.set("2023.3.7")
-//  localPath.set("D:\\wp\\git\\intellij-sdk-code-samples\\tree_structure_provider\\libs\\ideaIC-2023.3.7")
-  localPath.set("D:\\wp\\git\\intellij-sdk-code-samples\\tree_structure_provider\\local-repo\\ideaIC-2021.2.2")
+//   version.set("2022.3")
+  localPath.set("D:\\wp\\git\\intellij-sdk-code-samples\\tree_structure_provider\\local-repo\\ideaIC-2022.3")
   instrumentCode.set(false)
 }
 
@@ -37,7 +36,7 @@ tasks {
 
   patchPluginXml {
     version.set("${project.version}")
-    sinceBuild.set("212")
+    sinceBuild.set("223")
     untilBuild.set("242.*")
   }
 }
