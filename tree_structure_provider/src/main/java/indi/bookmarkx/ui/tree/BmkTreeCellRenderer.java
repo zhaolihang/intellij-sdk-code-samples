@@ -46,13 +46,13 @@ public class BmkTreeCellRenderer extends DefaultTreeCellRenderer {
             // if is root node
             icon = AllIcons.Nodes.Module;
         } else if (row > 0) {
-            icon = node.isBookmark()
-                    ? IconLoader.findIcon("icons/bookmark.svg")
-                    : AllIcons.Nodes.Folder;
+//            icon = node.isBookmark()
+//                    ? IconLoader.getIcon("icons/bookmark.svg")
+//                    : AllIcons.Nodes.Folder;
             if (node.isBookmark()) {
                 BookmarkNodeModel model =  (BookmarkNodeModel) node.getUserObject();
                 if (null == model.getOpenFileDescriptor()) {
-                    icon = IconLoader.findIcon("icons/dissmiss.svg");
+//                    icon = IconLoader.getIcon("icons/dissmiss.svg");
                 }
             }
         }

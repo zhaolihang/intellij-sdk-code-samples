@@ -33,91 +33,65 @@
     <vendor url="https://plugins.jetbrains.com">IntelliJ Platform SDK</vendor>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="Bookmark-X" anchor="left"
-                    icon="/icons/logo.svg"
-                    factoryClass="indi.bookmarkx.RootWindowFactory" secondary="true"/>
+        <!--        <toolWindow id="Bookmark-X" anchor="left"-->
+        <!--                    icon="/icons/logo.svg"-->
+        <!--                    factoryClass="indi.bookmarkx.RootWindowFactory" secondary="true"/>-->
 
-        <projectService serviceImplementation="indi.bookmarkx.MyPersistent"/>
+        <!--        <projectService serviceImplementation="indi.bookmarkx.MyPersistent"/>-->
 
-        <editor.linePainter implementation="indi.bookmarkx.ui.painter.LineEndPainter"/>
+        <!--        <editor.linePainter implementation="indi.bookmarkx.ui.painter.LineEndPainter"/>-->
 
-        <editorFactoryDocumentListener implementation="indi.bookmarkx.global.BookmarkDocumentListener"/>
+        <!--        <editorFactoryDocumentListener implementation="indi.bookmarkx.global.BookmarkDocumentListener"/>-->
 
         <!--    <treeStructureProvider implementation="com.example.CustomTreeStructureProvider"/>-->
-<!--        <treeStructureProvider implementation="org.intellij.sdk.treeStructureProvider.TextOnlyTreeStructureProvider"/>-->
+        <!--        <treeStructureProvider implementation="org.intellij.sdk.treeStructureProvider.TextOnlyTreeStructureProvider"/>-->
 
-        <toolWindow id="Custom Project View"
-                    anchor="right"
-                    factoryClass="com.example.CustomProjectViewToolWindowFactory"/>
+        <!--        <toolWindow id="Custom Project View"-->
+        <!--                    anchor="right"-->
+        <!--                    factoryClass="com.example.CustomProjectViewToolWindowFactory"/>-->
     </extensions>
 
-    <applicationListeners>
-        <listener class="indi.bookmarkx.global.ProjectListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    <!--    <applicationListeners>-->
+    <!--        <listener class="indi.bookmarkx.global.ProjectListener"-->
+    <!--                  topic="com.intellij.openapi.project.ProjectManagerListener"/>-->
 
-        <listener class="indi.bookmarkx.global.ToolWindowListener"
-                  topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>
-    </applicationListeners>
+    <!--        <listener class="indi.bookmarkx.global.ToolWindowListener"-->
+    <!--                  topic="com.intellij.openapi.wm.ex.ToolWindowManagerListener"/>-->
+    <!--    </applicationListeners>-->
 
     <!--插件动作-->
     <actions>
 
-        <group id="org.intellij.sdk.action.GroupedActions" text="_Bookmark-X" popup="true">
-            <add-to-group group-id="GoToMenu" anchor="after"
-                          relative-to-action="indi.bookmarkx.action.BookmarkCreateAction"/>
+<!--        <group id="com.zlh.BookmarkX" text="Bookmark-X" popup="true">-->
+<!--            <add-to-group group-id="GoToMenu"/>-->
 
-            <action id="indi.bookmarkx.action.BookmarkCreateAction" class="indi.bookmarkx.action.BookmarkCreateAction"
-                    text="Add With Line">
-                <keyboard-shortcut first-keystroke="shift alt d" keymap="$default"/>
-            </action>
-            <action id="indi.bookmarkx.action.NextBookmarkAction" class="indi.bookmarkx.action.NextBookmarkAction"
-                    text="Next">
-                <keyboard-shortcut first-keystroke="shift alt RIGHT" keymap="$default"/>
-            </action>
-            <action id="indi.bookmarkx.action.PrevBookmarkAction" class="indi.bookmarkx.action.PrevBookmarkAction"
-                    text="Prev">
-                <keyboard-shortcut first-keystroke="shift alt LEFT" keymap="$default"/>
-            </action>
+<!--            <action id="indi.bookmarkx.action.BookmarkCreateAction" class="indi.bookmarkx.action.BookmarkCreateAction"-->
+<!--                    text="Add With Line">-->
+<!--                <keyboard-shortcut first-keystroke="shift alt d" keymap="$default"/>-->
+<!--            </action>-->
+<!--            <action id="indi.bookmarkx.action.NextBookmarkAction" class="indi.bookmarkx.action.NextBookmarkAction"-->
+<!--                    text="Next">-->
+<!--                <keyboard-shortcut first-keystroke="shift alt RIGHT" keymap="$default"/>-->
+<!--            </action>-->
+<!--            <action id="indi.bookmarkx.action.PrevBookmarkAction" class="indi.bookmarkx.action.PrevBookmarkAction"-->
+<!--                    text="Prev">-->
+<!--                <keyboard-shortcut first-keystroke="shift alt LEFT" keymap="$default"/>-->
+<!--            </action>-->
 
-            <!-- 帮助菜单，跳转到插件官网 -->
-            <action id="indi.bookmarkx.action.ToHelpWebPageAction"
-                    class="indi.bookmarkx.action.ToHelpWebPageAction"
-                    text="_Help"
-                    icon="AllIcons.Actions.Help">
+<!--            &lt;!&ndash; 帮助菜单，跳转到插件官网 &ndash;&gt;-->
+<!--            <action id="indi.bookmarkx.action.ToHelpWebPageAction"-->
+<!--                    class="indi.bookmarkx.action.ToHelpWebPageAction"-->
+<!--                    text="Help"-->
+<!--                    icon="AllIcons.Actions.Help">-->
+<!--            </action>-->
+<!--        </group>-->
+
+        <group id="org.zlh.BookmarkPro" text="BookmarkPro" popup="true">
+            <add-to-group group-id="ToolsMenu"/>
+            <action id="BookmarkPro.Test" class="org.zlh.BookmarkPro.Actions.Test"
+                    text="BookmarkPro.Test">
             </action>
         </group>
-
-        <action id="ProjectModel.SourceRoots" class="org.intellij.sdk.project.model.ShowSourceRootsActions"
-                text="Show Source Roots"
-                description="Illustrates how to get source roots"
-                icon="SdkIcons.Sdk_default_icon">
-            <add-to-group group-id="ToolsMenu" anchor="first"/>
-        </action>
-        <action id="ProjectModel.ProjectSdk" class="org.intellij.sdk.project.model.ProjectSdkAction"
-                text="Show Sdk Info"
-                description="Illustrates how to get Sdk info"
-                icon="SdkIcons.Sdk_default_icon">
-            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="ProjectModel.SourceRoots"/>
-        </action>
-        <action id="ProjectModel.ProjectFileIndex"
-                class="org.intellij.sdk.project.model.ProjectFileIndexSampleAction"
-                text="FileProjectIndex in Action"
-                description="Illustrates how to get source roots"
-                icon="SdkIcons.Sdk_default_icon">
-            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-        </action>
-        <action id="ProjectModel.ModificationAction" class="org.intellij.sdk.project.model.ModificationAction"
-                text="Project Modification in Action"
-                description="Illustrates how to get source roots"
-                icon="SdkIcons.Sdk_default_icon">
-            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-        </action>
-        <action id="ProjectModel.LibrariesAction" class="org.intellij.sdk.project.model.LibrariesAction"
-                text="Libraries for File"
-                description="Illustrates accessing libraries"
-                icon="SdkIcons.Sdk_default_icon">
-            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-        </action>
 
     </actions>
 
