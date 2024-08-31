@@ -1,0 +1,8 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
+repositories {
+    mavenCentral()
+    // 其他需要的仓库...
+}
