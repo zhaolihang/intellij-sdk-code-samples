@@ -33,6 +33,8 @@
     <vendor url="https://plugins.jetbrains.com">IntelliJ Platform SDK</vendor>
 
     <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="BookmarkPro" secondary="true" icon="AllIcons.General.ProjectStructure" anchor="left"
+                    factoryClass="org.zlh.BookmarkPro.UI.ProjectTreeToolWindowFactory"/>
         <!--        <toolWindow id="Bookmark-X" anchor="left"-->
         <!--                    icon="/icons/logo.svg"-->
         <!--                    factoryClass="indi.bookmarkx.RootWindowFactory" secondary="true"/>-->
