@@ -4,6 +4,7 @@ import com.intellij.icons.AllIcons;
 import com.intellij.ide.dnd.DnDDragStartBean;
 import com.intellij.ide.dnd.DnDEvent;
 import com.intellij.ide.dnd.DnDSupport;
+import com.intellij.ide.dnd.FileCopyPasteUtil;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -104,6 +105,8 @@ public class ProjectTreePanel extends JPanel {
     }
 
     private void handleDrop(@NotNull DnDEvent event) {
+        LOG.info("handleDrop eventType=" + event.getClass());
+        LOG.info("handleDrop event=" + event.toString());
         Object attachedObject = event.getAttachedObject();
         if (attachedObject != null) {
             LOG.info("handleDrop " + attachedObject.toString());
